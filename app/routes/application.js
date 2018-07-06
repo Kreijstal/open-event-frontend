@@ -30,15 +30,15 @@ export default Route.extend(ApplicationRouteMixin, {
         ],
         sort: '-received-at'
       });
-    }
+    };debugger;
     return {
       notifications,
       pages: await this.get('store').query('page', {
         sort: 'index'
       }),
       socialLinks: await this.get('store').queryRecord('setting', {}),
-      eventTypes: await this.get('store').query('event-types', {}),
-      //eventLocations: await this.get('store').query('event-locations', {}),
+      eventTypes: await this.get('store').findAll('event-type'),
+      //eventLocations: await this.get('store').query('event-location', {}),
     };
   },
 
